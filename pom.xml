@@ -33,15 +33,15 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-suite</artifactId>
-      <version>1.11.3</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
       <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>1.11.3</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -53,13 +53,13 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.5.2</version>
         <configuration>
-          <includes>
-            <include>**/RunCucumberTest.java</include>
-            <include>**/*Test.java</include>
-          </includes>
-          <systemPropertyVariables>
-            <cucumber.plugin>pretty,json:target/cucumber-report.json,junit:target/cucumber-junit.xml</cucumber.plugin>
-          </systemPropertyVariables>
+          <properties>
+            <configurationParameters>
+              cucumber.plugin=pretty, json:target/cucumber-report.json, junit:target/cucumber-junit.xml
+              cucumber.glue=com.ketryxdemo.illumina.steps
+              cucumber.features=classpath:features
+            </configurationParameters>
+          </properties>
         </configuration>
       </plugin>
     </plugins>
