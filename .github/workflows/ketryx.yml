@@ -1,0 +1,37 @@
+name: Ketryx Report Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+jobs:
+  test-and-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+
+      - name: Run tests
+        run: mvn -B test
+
+      - name: Report build to Ketryx
+        if: always()
+        uses: Ketryx/ketryx-github-action@v2
+        with:
+          ketryx-url: https://demo.ketryx.com
+          project: KXPRJ01M2G8YQ1XEMWBFKAGW0H46W8E
+          api-key: ${{ secrets.KETRYX_API_KEY }}
+          build-name: backbone-shared-tests
+          test-junit-path: target/surefire-reports/*.xml
+          test-cucumber-path: target/cucumber-report.json
