@@ -27,7 +27,7 @@ jobs:
 
       - name: Report build to Ketryx
         if: always()
-        uses: Ketryx/ketryx-github-action@v2
+        uses: Ketryx/ketryx-github-action@v1.5.0
         with:
           ketryx-url: https://demo.ketryx.com
           project: KXPRJ01M2G8YQ1XEMWBFKAGW0H46W8E
