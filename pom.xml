@@ -15,23 +15,10 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <cucumber.version>7.18.1</cucumber.version>
     <junit.version>5.11.3</junit.version>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-java</artifactId>
-      <version>${cucumber.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-junit-platform-engine</artifactId>
-      <version>${cucumber.version}</version>
-      <scope>test</scope>
-    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -51,16 +38,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.5.2</version>
-        <configuration>
-          <properties>
-            <configurationParameters>
-              cucumber.plugin=pretty, json:target/cucumber-report.json, junit:target/cucumber-junit.xml
-              cucumber.glue=com.ketryxdemo.illumina.steps
-              cucumber.features=classpath:features
-            </configurationParameters>
-          </properties>
-        </configuration>
+        <version>3.2.5</version>
       </plugin>
     </plugins>
   </build>
