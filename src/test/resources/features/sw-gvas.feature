@@ -37,3 +37,4 @@ Feature: Software Item Spec verification — Annotation Query Engine
     Given the system is up
     When I add 6 and 6
     Then the result is 12
+
