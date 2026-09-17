@@ -25,3 +25,9 @@ Feature: Software Item Spec verification — Annotation Query Engine
     Given the system is up
     When I add 4 and 4
     Then the result is 8
+
+  @tests:sw-gvas-05
+  Scenario: SW-GVAS-05 Source Provenance Response Headers verification
+    Given the system is up
+    When I add 5 and 5
+    Then the result is 10
