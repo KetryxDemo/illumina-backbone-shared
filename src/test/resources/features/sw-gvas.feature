@@ -31,3 +31,9 @@ Feature: Software Item Spec verification — Annotation Query Engine
     Given the system is up
     When I add 5 and 5
     Then the result is 10
+
+  @tests:sw-gvas-06
+  Scenario: SW-GVAS-06 Reclassification Notification Service verification
+    Given the system is up
+    When I add 6 and 6
+    Then the result is 12
